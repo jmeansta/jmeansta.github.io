@@ -3,17 +3,6 @@ var countTil; //this is the time set by the user to have the timer count down un
 var timeToAdd; //this is a temporary variable used to check if the amount of time between the time
 //the user submitted, and the current time is negative
 
-
-// This line sets the date in the default field, but it has to shift it by the current timezone offset in
-// order for toISOString() to work correctly
-$("dateInput").value = new Date(cdt.valueOf() - (cdt.getTimezoneOffset() * 60 * 1000)).toISOString().substring(0, 10);
-// The same can be said of the time setting
-$("timeInput").value = new Date(cdt.valueOf() - (cdt.getTimezoneOffset() * 60 * 1000)).toISOString().substring(11, 16);
-
-// This was the old code for separating the time
-// $("dateInput").value = cdt.toISOString().substring(0, 10); //this separates the date
-// $("timeInput").value = cdt.toISOString().substring(11, 16); //this separates the time
-
 var masterTime = 0; //this is the value, in secconds, of the timer
 var secs = 0; //These three variables are used to make refreshing the text more intuitive
 var mins = 0;
@@ -30,6 +19,9 @@ var ringTimeout;
 
 //This has to be in a variable because event listeners for the page closing are weird
 var savedChangesPopup = function (e) {e.preventDefault(); e.returnValue = ''; };
+
+//setup for the page. Puts initial values in the date and time boxes next to the "countdown until" button
+refreshTime();
 
 function $(id) {
 	return document.getElementById(id);
@@ -115,6 +107,18 @@ function refreshText(){
 	textTemp = "";
 }
 
+function refreshTime(){
+	// This line sets the date in the default field, but it has to shift it by the current timezone offset in
+	// order for toISOString() to work correctly
+	$("dateInput").value = new Date(cdt.valueOf() - (cdt.getTimezoneOffset() * 60 * 1000)).toISOString().substring(0, 10);
+	// The same can be said of the time setting
+	$("timeInput").value = new Date(cdt.valueOf() - (cdt.getTimezoneOffset() * 60 * 1000)).toISOString().substring(11, 16);
+	
+	// This was the old code for separating the time
+	// $("dateInput").value = cdt.toISOString().substring(0, 10); //this separates the date
+	// $("timeInput").value = cdt.toISOString().substring(11, 16); //this separates the time
+}
+
 function sec(){
 	masterTime += adder;
 	if (masterTime < 0) {masterTime = 0;}
@@ -172,7 +176,7 @@ function countdownTil() {
 		masterTime = Math.floor(timeToAdd/1000);
 		refreshText();
 	}
-	
+	toggleStartStop();
 }
 
 function countdown() {

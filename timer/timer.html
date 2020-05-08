@@ -17,9 +17,10 @@
 		<button onclick="toggleMagnitude()" id="toggleMagnitudeButton">Toggle Magnitude</button>
 	</div>
 	<div>
-		<button onclick="countdownTil();toggleStartStop()" id="countdownTilButton">Countdown Until:</button>
+		<button onclick="countdownTil()" id="countdownTilButton">Countdown Until:</button>
 		<input type="time" id="timeInput">
 		<input type="date" id="dateInput">
+		<button onclick="refreshTime()" id="refreshTimeButton">⟳</button>
 	</div>
 	<div>
 		<button onclick="masterTime=0; refreshText()">Clear</button>
