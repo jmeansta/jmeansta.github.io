@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A Simple Timer</title>
+	<link rel="icon" href="icon.png" type="image/png">
+	<link rel="stylesheet" type="text/css" href="timer.css">
+</head>
+<body>
+	<h1 id="output">00:00:00</h1>
+	<div>
+		<button onclick="hor()" id="horButton">Add 1 Hour</button>
+		<button onclick="min()" id="minButton">Add 1 Minute</button>
+		<button onclick="sec()" id="secButton">Add 1 Seccond</button>
+	</div>
+	<div>
+		<button onclick="toggleAddSub()" id="toggleAddSubButton">Toggle Addition/Subtraction</button>
+		<button onclick="toggleMagnitude()" id="toggleMagnitudeButton">Toggle Magnitude</button>
+	</div>
+	<div>
+		<button onclick="countdownTil();toggleStartStop()" id="countdownTilButton">Countdown Until:</button>
+		<input type="time" id="timeInput">
+		<input type="date" id="dateInput">
+	</div>
+	<div>
+		<button onclick="masterTime=0; refreshText()">Clear</button>
+		<button onclick="toggleStartStop()" id="startButton">Start</button>
+	</div>
+</body>
+<script type="text/javascript" src="timer.js"></script>
+</html>
