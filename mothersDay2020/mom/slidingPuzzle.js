@@ -30,7 +30,7 @@ function setupPuzzle() {
 			imgTemp.height = 65;
 			tileTemp.appendChild(imgTemp)
 
-			if (tileNumberer != gridSize * gridSize) {
+			if (tileNumberer != 3) {
 				// tileTemp.innerHTML = tileNumberer + "a"; //this needs to be changed to allow images
 				imgTemp.src = "mom" + tileNumberer + ".png";
 				imgTemp.alt = tileNumberer;
