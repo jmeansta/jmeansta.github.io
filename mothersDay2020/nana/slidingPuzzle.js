@@ -33,6 +33,7 @@ function setupPuzzle() {
 			if (tileNumberer != gridSize * gridSize) {
 				// tileTemp.innerHTML = tileNumberer + "a"; //this needs to be changed to allow images
 				imgTemp.src = "nana" + tileNumberer + ".png";
+				imgTemp.alt = tileNumberer;
 				tileNumberer++;
 			} else {
 				// tileTemp.innerHTML = ""; // this needs to be changed to allow images
