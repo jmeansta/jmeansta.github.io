@@ -39,6 +39,7 @@ function setupPuzzle() {
 				// tileTemp.innerHTML = ""; // this needs to be changed to allow images
 				holeX = tileTemp.x;
 				holeY = tileTemp.y;
+				tileNumberer++;
 			}
 		}
 	}
