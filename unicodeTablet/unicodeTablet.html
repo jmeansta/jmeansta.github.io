@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Unicode Tablet</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="unicodeTabletIcon.png.png">
+	<style type="text/css">
+		.copyButton {
+			border: 1px solid black;
+			width: 50px;
+			height: 50px;
+			font-size: 20px;
+			text-align: center;
+			display: inline-block;
+			margin: 3px;
+			line-height: 50px;
+			border-radius: 10px;
+		}
+		.copyButton:active {
+			background-color: #aaaaaa;
+		}
+	</style>
+</head>
+<body>
+	<input id="input" type="text"/><br><br>
+	<div id="putButtonsHere"></div>
+
+	<script type="text/javascript">
+		charList = ["⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹","₀","₁","₂","₃","₄","₅","₆","₇","₈","₉","⁻","⁺","⁼","₋","₊","₌","×","÷","•","→","←","⇄","½","⅓","⅔","¼","¾","Α","α","Β","β","Γ","γ","Δ","δ","Ε","ε","Ζ","ζ","Η","η","Θ","θ","Ι","ι","Κ","κ","Λ","λ","Μ","μ","Ν","ν","Ξ","ξ","Ο","ο","Π","π","Ρ","ρ","Σ","σ","Τ","τ","Υ","υ","Φ","φ","Χ","χ","Ψ","ψ","Ω","ω"];
+		// 
+		
+		for (var i = 0; i < charList.length; i++) {
+			curButton = apnd("div","","putButtonsHere");
+			curButton.classList = ["copyButton"];
+			curButton.innerHTML = charList[i];
+			curButton.addEventListener("click", setInput);
+			// curButton.addEventListener("mousedown", down);
+			// curButton.addEventListener("mouseup", up);
+			// curButton.style = "border: 1px solid black; width: 50px; height: 50px; font-size: 20px; text-align: center; display: inline-block;";
+			// I would use a style tag, but the elements created with this function won't style themselves if I do
+			// styling todo:
+			// - Vertical align text in each button
+			// - Place buttons side by side
+			// - Round button corners
+			// - Button changes color on click
+		}
+
+		// function down() {
+		// 	this.style.backgroundColor = "white"
+
+		// 	console.log("down");
+		// }
+
+		// function up() {
+		// 	this.style.backgroundColor = "gray"
+
+		// 	console.log("up");
+		// }
+
+		
+
+		function apnd(nodeType,nodeId,appendTo) {
+			var node = document.createElement(nodeType);
+			node.id = nodeId;
+			document.getElementById(appendTo).appendChild(node);
+			return node;
+		}
+
+		function setInput() {
+			console.log("running setInput() with " + this.innerHTML);
+			$("input").value = this.innerHTML;
+			var copyText = document.querySelector("#input");
+			copyText.select();
+			document.execCommand("copy");
+		}
+		
+		function $(id) {
+			return document.getElementById(id);
+		}
+	</script>
+
+</body>
+</html>
