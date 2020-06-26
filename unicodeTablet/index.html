@@ -7,13 +7,13 @@
 	<style type="text/css">
 		.copyButton {
 			border: 1px solid black;
-			width: 50px;
-			height: 50px;
-			font-size: 20px;
+			width: 60px;
+			height: 60px;
+			font-size: 30px;
 			text-align: center;
 			display: inline-block;
 			margin: 3px;
-			line-height: 50px;
+			line-height: 60px;
 			border-radius: 10px;
 		}
 		.copyButton:active {
@@ -26,35 +26,22 @@
 	<div id="putButtonsHere"></div>
 
 	<script type="text/javascript">
-		charList = ["⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹","₀","₁","₂","₃","₄","₅","₆","₇","₈","₉","⁻","⁺","⁼","₋","₊","₌","→","←","⇄"];
+		charList = ["⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹","br","₀","₁","₂","₃","₄","₅","₆","₇","₈","₉","br","⁻","⁺","⁼","₋","₊","₌","×","÷","•","°","br","→","←","⇄","br","½","⅓","⅔","¼","¾","br","Α","α","Β","β","Γ","γ","Δ","δ","Ε","ε","Ζ","ζ","Η","η","Θ","θ","Ι","ι","Κ","κ","Λ","λ","Μ","μ","Ν","ν","Ξ","ξ","Ο","ο","Π","π","Ρ","ρ","Σ","σ","Τ","τ","Υ","υ","Φ","φ","Χ","χ","Ψ","ψ","Ω","ω"];
+		// 
 		
 		for (var i = 0; i < charList.length; i++) {
-			curButton = apnd("div","","putButtonsHere");
-			curButton.classList = ["copyButton"];
-			curButton.innerHTML = charList[i];
-			curButton.addEventListener("click", setInput);
-			// curButton.addEventListener("mousedown", down);
-			// curButton.addEventListener("mouseup", up);
-			// curButton.style = "border: 1px solid black; width: 50px; height: 50px; font-size: 20px; text-align: center; display: inline-block;";
-			// I would use a style tag, but the elements created with this function won't style themselves if I do
-			// styling todo:
-			// - Vertical align text in each button
-			// - Place buttons side by side
-			// - Round button corners
-			// - Button changes color on click
+			if (charList[i] == 'br') {
+				apnd("br","","putButtonsHere")
+			} else {
+				curButton = apnd("div","","putButtonsHere");
+				curButton.classList = ["copyButton"];
+				curButton.innerHTML = charList[i];
+				curButton.addEventListener("click", setInput);
+				// curButton.addEventListener("mousedown", down);
+				// curButton.addEventListener("mouseup", up);
+				// curButton.style = "border: 1px solid black; width: 50px; height: 50px; font-size: 20px; text-align: center; display: inline-block;";
+			}
 		}
-
-		// function down() {
-		// 	this.style.backgroundColor = "white"
-
-		// 	console.log("down");
-		// }
-
-		// function up() {
-		// 	this.style.backgroundColor = "gray"
-
-		// 	console.log("up");
-		// }
 
 		
 
