@@ -4,28 +4,11 @@
 	<title>No</title>
 	<meta charset="utf-8">
 </head>
-<body onload="foo()">
-	<!-- <button onclick="foo()">No</button> -->
+<body> 
 	<p id="no"></p>
 </body>
 <script type="text/javascript">
-	function foo() {
-		setInterval(no,80);
-	}
-
-	function no() {
-		document.getElementById("no").innerHTML = document.getElementById("no").innerHTML + " no"
-	}
-
-
-	// var myVar;
-
-	// function myFunction() {
-	//   myVar = setInterval(alertFunc, 3000);
-	// }
-
-	// function alertFunc() {
-	//   alert("Hello!");
-	// }
+	document.onload = setInterval(no,80);
+	function no() {document.getElementById("no").innerHTML = document.getElementById("no").innerHTML + " no"}
 </script>
 </html>
