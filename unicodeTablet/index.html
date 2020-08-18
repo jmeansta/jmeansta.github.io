@@ -19,15 +19,41 @@
 		.copyButton:active {
 			background-color: #aaaaaa;
 		}
+		#input {
+			font-size: 18px;
+			width: 300px;
+		}
 	</style>
 </head>
 <body>
-	<input id="input" type="text"/><br><br>
+	<textarea id="input"></textarea>
+	<br>
+	<label>Night Mode</label>
+	<input type="checkbox" name="nightMode" checked="false" onclick="toggleNightMode()">
+	<br>
+	<label>Buttons copy</label>
+	<input type="radio" name="copytype" checked="true" onclick="buttonsCopy()">
+	<label>Buttons type</label>
+	<input type="radio" name="copytype" checked="false" onclick="buttonsType()">
+	<br>
+	<button onclick="clearTextbox()">Clear Textbox</button>
+	<button onclick="copyTextbox()" hidden="true" id="copyTextboxContentsButton">Copy Textbox Contents</button>
+	<br>
+	<br>
 	<div id="putButtonsHere"></div>
 
 	<script type="text/javascript">
-		charList = ["⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹","br","₀","₁","₂","₃","₄","₅","₆","₇","₈","₉","br","⁻","⁺","⁼","₋","₊","₌","×","÷","•","°","br","→","←","⇄","br","½","⅓","⅔","¼","¾","br","Α","α","Β","β","Γ","γ","Δ","δ","Ε","ε","Ζ","ζ","Η","η","Θ","θ","Ι","ι","Κ","κ","Λ","λ","Μ","μ","Ν","ν","Ξ","ξ","Ο","ο","Π","π","Ρ","ρ","Σ","σ","Τ","τ","Υ","υ","Φ","φ","Χ","χ","Ψ","ψ","Ω","ω"];
-		// 
+		/*
+			Ideas:
+			Add type and copy radio buttons to toggle function
+			add ability to type in a box using the buttons
+		*/
+
+		var nightMode = false;
+		var buttonsDoCopy = true;
+		document.onload = $n("nightMode")[0].checked = false; $n("copytype")[0].checked = true; $n("copytype")[1].checked = false;
+
+		charList = ["⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹","br","₀","₁","₂","₃","₄","₅","₆","₇","₈","₉","br","⁻","⁺","⁼","₋","₊","₌","×","÷","•","√","°","br","→","←","⇄","br","½","⅓","⅔","¼","¾","br","∂","∇","br","Α","α","Β","β","Γ","γ","Δ","δ","Ε","ε","Ζ","ζ","Η","η","Θ","θ","Ι","ι","Κ","κ","Λ","λ","Μ","μ","Ν","ν","Ξ","ξ","Ο","ο","Π","π","Ρ","ρ","Σ","σ","Τ","τ","Υ","υ","Φ","φ","Χ","χ","Ψ","ψ","Ω","ω"];
 		
 		for (var i = 0; i < charList.length; i++) {
 			if (charList[i] == 'br') {
@@ -37,13 +63,34 @@
 				curButton.classList = ["copyButton"];
 				curButton.innerHTML = charList[i];
 				curButton.addEventListener("click", setInput);
-				// curButton.addEventListener("mousedown", down);
-				// curButton.addEventListener("mouseup", up);
-				// curButton.style = "border: 1px solid black; width: 50px; height: 50px; font-size: 20px; text-align: center; display: inline-block;";
 			}
 		}
 
-		
+		function toggleNightMode() {
+			copyButtons = document.getElementsByClassName("copyButton");
+			labels = document.getElementsByTagName("label");
+			if (nightMode) {
+				for (var i = 0; i < copyButtons.length; i++) {
+					copyButtons[i].style.borderColor = "black";
+					copyButtons[i].style.color = "black";
+				}
+				for (var i = 0; i < labels.length; i++) {
+					labels[i].style.color = "black";
+				}
+				document.bgColor = "white";
+				nightMode = false;
+			} else {
+				for (var i = 0; i < copyButtons.length; i++) {
+					copyButtons[i].style.borderColor = "white";
+					copyButtons[i].style.color = "white";
+				}
+				for (var i = 0; i < labels.length; i++) {
+					labels[i].style.color = "white";
+				}
+				document.bgColor = "black";
+				nightMode = true;
+			}
+		}
 
 		function apnd(nodeType,nodeId,appendTo) {
 			var node = document.createElement(nodeType);
@@ -53,16 +100,32 @@
 		}
 
 		function setInput() {
-			console.log("running setInput() with " + this.innerHTML);
-			$("input").value = this.innerHTML;
+			// console.log("running setInput() with " + this.innerHTML);
+			if (buttonsDoCopy) {
+				$("input").value = this.innerHTML;
+				var copyText = document.querySelector("#input");
+				copyText.select();
+				document.execCommand("copy");
+			} else {
+				$("input").value = $("input").value + this.innerHTML;
+			}	
+		}
+
+		function copyTextbox() {
 			var copyText = document.querySelector("#input");
 			copyText.select();
 			document.execCommand("copy");
 		}
+
+		function clearTextbox() {$("input").value = "";}
+
+		function buttonsCopy() {buttonsDoCopy = true; $("copyTextboxContentsButton").hidden = true;}
+
+		function buttonsType() {buttonsDoCopy = false;$("copyTextboxContentsButton").hidden = false;}
 		
-		function $(id) {
-			return document.getElementById(id);
-		}
+		function $(id) {return document.getElementById(id);}
+
+		function $n(name) {return document.getElementsByName(name);}
 	</script>
 
 </body>
