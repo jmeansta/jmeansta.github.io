@@ -21,7 +21,8 @@
 		}
 		#input {
 			font-size: 18px;
-			width: 300px;
+			width: 680px;
+			height: 68px;
 		}
 	</style>
 </head>
@@ -78,6 +79,8 @@
 					labels[i].style.color = "black";
 				}
 				document.bgColor = "white";
+				$("input").style.color = "black";
+				$("input").style.backgroundColor = "white";
 				nightMode = false;
 			} else {
 				for (var i = 0; i < copyButtons.length; i++) {
@@ -88,6 +91,8 @@
 					labels[i].style.color = "white";
 				}
 				document.bgColor = "black";
+				$("input").style.color = "white";
+				$("input").style.backgroundColor = "black";
 				nightMode = true;
 			}
 		}
