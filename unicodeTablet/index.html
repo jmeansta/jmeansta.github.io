@@ -46,8 +46,6 @@
 	<script type="text/javascript">
 		/*
 			Ideas:
-			Add type and copy radio buttons to toggle function
-			add ability to type in a box using the buttons
 		*/
 
 		var nightMode = false;
@@ -113,6 +111,7 @@
 				document.execCommand("copy");
 			} else {
 				$("input").value = $("input").value + this.innerHTML;
+				$("input").focus()
 			}	
 		}
 
