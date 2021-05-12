@@ -1,0 +1,157 @@
+% a file of constants that I load in for all calculations
+clear; clc;
+%% Planck and Boltzman
+h_Joules = 6.626e-34;
+h_eV = 4.135e-15;
+hbar_Joules = h_Joules/(2*pi);
+hbar_eV = h_eV/(2*pi);
+kb_Joules = 1.38e-23;
+kb_eV = 8.617e-5;
+%% Electron properties
+qe = 1.6e-19;
+me = 9.11e-31;
+%% Magnetic and electric fields
+epsilon0 = 8.854e-12;
+mu0 = 1.25e-6;
+%% misc
+A0 = 1.2e6;
+c = 3e8;
+% end of the file
+% problem 5
+>> N_cb = 2*((2*pi*0.28*me*kb_Joules*300)/(h_Joules^2))^(3/2)
+
+N_cb =
+
+   3.7159e+24
+
+>> N_vb = 2*((2*pi*0.41*me*kb_Joules*300)/(h_Joules^2))^(3/2)
+
+N_vb =
+
+   6.5841e+24
+
+>> E_g = 1.1
+
+E_g =
+
+    1.1000
+
+>> E_f = (0.5*E_g) + 0.75*kb_eV*300*log(.41/.28)
+
+E_f =
+
+    0.5574
+
+>> N_e = N_cb*exp((-E_g+E_f)/(kb_eV*300))
+
+N_e =
+
+   2.8466e+15
+
+>> N_h = N_vb*exp(-E_f/(kb_eV*300))
+
+N_h =
+
+   2.8466e+15
+
+>> N_e == N_h
+
+ans =
+
+  logical
+
+   0
+
+>> 2.8466e15*((me*0.28*1700)+(me*0.41*700))
+
+ans =
+
+   1.9787e-12
+
+>> 1/ans
+
+ans =
+
+   5.0539e+11
+
+>> % wait, the mobilities are in cm/stuff. I have to re-do this
+>> 1/ (2.8466e15*((me*0.28*.17)+(me*0.41*.07)))
+
+ans =
+
+   5.0539e+15
+
+>> %and now I have to re-do it all with T=800
+>> N_cb = 2*((2*pi*0.28*me*kb_Joules*800)/(h_Joules^2))^(3/2)
+
+N_cb =
+
+   1.6181e+25
+
+>> N_vb = 2*((2*pi*0.41*me*kb_Joules*800)/(h_Joules^2))^(3/2);
+>> E_f = (0.5*E_g) + 0.75*kb_eV*800*log(.41/.28)
+
+E_f =
+
+    0.5697
+
+>> N_e = N_cb*exp((-E_g+E_f)/(kb_eV*800))
+
+N_e =
+
+   7.3833e+21
+
+>> N_h = N_vb*exp(-E_f/(kb_eV*300))
+
+N_h =
+
+   7.6957e+15
+
+>> N_h = N_vb*exp(-E_f/(kb_eV*800))
+
+N_h =
+
+   7.3833e+21
+
+>> 7.3833e21*((me*0.28*1700)+(me*0.41*700))
+
+ans =
+
+   5.1321e-06
+
+>> % made the same mistake
+>> 1/ (7.3833e21*((me*0.28*.17)+(me*0.41*.07)))
+
+ans =
+
+   1.9485e+09
+
+>> % so I just realized I replaced charge of an electron with mass of an electron in my resistivity calculations
+>> % fortunately, they're easy to re-do
+>> 1/ (7.3833e21*qe*(.17+.07))
+
+ans =
+
+    0.0035
+
+>> 1/ (2.8466e15*qe*(.17+.07))
+
+ans =
+
+   9.1483e+03
+
+>> % question 7
+>> E_g = 1.6; me_star = 0.2*me; mh_star = 0.6*me; T=300;
+>> E_f = (0.5*E_g) + (0.75*kb_eV*T*log(mh_star/me_star)
+ E_f = (0.5*E_g) + (0.75*kb_eV*T*log(mh_star/me_star)
+                                                     ↑
+Error: Invalid expression. When calling a function or indexing a
+variable, use parentheses. Otherwise, check for mismatched
+delimiters.
+ 
+Did you mean:
+>> E_f = (0.5*E_g) + (0.75*kb_eV*T*log(mh_star/me_star))
+
+E_f =
+
+    0.8213
