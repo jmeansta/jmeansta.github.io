@@ -1,0 +1,123 @@
+>> syms N_v
+>> solve(0.14 == kb_eV*300*log(N_v/1e26))
+ 
+ans =
+ 
+100000000000000000000000000*exp(252201579132747776/46569021586861875)
+ 
+>> doubble(ans)
+Unrecognized function or variable 'doubble'.
+ 
+Did you mean:
+>> double(ans)
+
+ans =
+
+   2.2490e+28
+
+>> syms Vapp
+>> sqrt((qe*1e26*1.0536e-10)/(2*(0.93-Vapp)))
+ 
+ans =
+ 
+(-7774195822424153/(4611686018427387904*(2*Vapp - 93/50)))^(1/2)
+ 
+>> solve(sqrt((qe*1e26*1.0536e-10)/(2*(0.93-Vapp))))
+ 
+ans =
+ 
+Empty sym: 0-by-1
+ 
+>> solve(sqrt((qe*1e26*1.0536e-10)/(2*(0.93-Vapp))),Vapp)
+ 
+ans =
+ 
+Empty sym: 0-by-1
+ 
+>> syms CoverA
+>> solve(CoverA == sqrt((qe*1e26*1.0536e-10)/(2*(0.93-Vapp))),Vapp)
+Warning: Solutions are only valid under certain conditions. To
+include parameters and conditions in the solution, specify the
+'ReturnConditions' value as 'true'. 
+> In sym/solve>warnIfParams (line 478)
+In sym/solve (line 357) 
+ 
+ans =
+ 
+93/100 - 7774195822424153/(9223372036854775808*CoverA^2)
+ 
+>> solve(CoverA == sqrt((qe*1e26*1.0536e-10)/(2*(0.93-Vapp))),CoverA)
+ 
+ans =
+ 
+(-7774195822424153/(4611686018427387904*(2*Vapp - 93/50)))^(1/2)
+ 
+>> (qe*1e26*1.0536e-10)/(2)
+
+ans =
+
+   8.4288e-04
+
+>> sqrt(ans)
+
+ans =
+
+    0.0290
+
+>> syms x
+>> solve(112.75/1 == 53.75/x)
+ 
+ans =
+ 
+215/451
+ 
+>> double(ans)
+
+ans =
+
+    0.4767
+
+>> double(solve(88.17/2 == 96.75/x)
+ double(solve(88.17/2 == 96.75/x)
+                                 ↑
+Error: Invalid expression. When calling a function or indexing a
+variable, use parentheses. Otherwise, check for mismatched
+delimiters.
+ 
+Did you mean:
+>> double(solve(88.17/2 == 96.75/x))
+
+ans =
+
+    2.1946
+
+>> ans/0.4767
+
+ans =
+
+    4.6038
+
+>> double(solve(88.17/2 == 75/x))
+
+ans =
+
+    1.7013
+
+>> double(solve(112.75/1 == 40.3333/x))
+
+ans =
+
+    0.3577
+
+>> syms phi_bn
+>> solve(0.6 == 4e4*(300^2)*exp(-phi_bn/(kb_eV*300)))
+ 
+ans =
+ 
+(1862760863474475*log(6000000000))/72057594037927936
+ 
+>> double(ans)
+
+ans =
+
+    0.5820
