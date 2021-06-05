@@ -1,0 +1,60 @@
+>> syms t
+>> laplace((30*cos(t)+24*sin(t))*exp(-0.8*t))
+ 
+ans =
+ 
+(30*(s + 4/5))/((s + 4/5)^2 + 1) + 24/((s + 4/5)^2 + 1)
+ 
+>> latex(ans)
+
+ans =
+
+    '\frac{30\,\left(s+\frac{4}{5}\right)}{{\left(s+\frac{4}{5}\right)}^2+1}+\frac{24}{{\left(s+\frac{4}{5}\right)}^2+1}'
+
+>> simplify((30*(s + 4/5))/((s + 4/5)^2 + 1) + 24/((s + 4/5)^2 + 1))
+Unrecognized function or variable 's'.
+ 
+>> syms s
+>> simplify((30*(s + 4/5))/((s + 4/5)^2 + 1) + 24/((s + 4/5)^2 + 1))
+ 
+ans =
+ 
+(150*(5*s + 8))/(25*s^2 + 40*s + 41)
+ 
+>> latex(ans)
+
+ans =
+
+    '\frac{150\,\left(5\,s+8\right)}{25\,s^2+40\,s+41}'
+
+>> ilaplace(((30*(s + 4/5))/((s + 4/5)^2 + 1) + 24/((s + 4/5)^2 + 1))/(8+0.2*s))
+ 
+ans =
+ 
+(144000*exp(-(4*t)/5)*(cos(t) + (809*sin(t))/960))/38441 - (144000*exp(-40*t))/38441
+ 
+>> latex(ans)
+
+ans =
+
+    '\frac{144000\,{\mathrm{e}}^{-\frac{4\,t}{5}}\,\left(\cos\left(t\right)+\frac{809\,\sin\left(t\right)}{960}\right)}{38441}-\frac{144000\,{\mathrm{e}}^{-40\,t}}{38441}'
+
+>> simplify((144000*exp(-(4*t)/5)*(cos(t) + (809*sin(t))/960))/38441 - (144000*exp(-40*t))/38441)
+ 
+ans =
+ 
+(144000*exp(-(4*t)/5)*(cos(t) + (809*sin(t))/960))/38441 - (144000*exp(-40*t))/38441
+ 
+>> latex(ans)
+
+ans =
+
+    '\frac{144000\,{\mathrm{e}}^{-\frac{4\,t}{5}}\,\left(\cos\left(t\right)+\frac{809\,\sin\left(t\right)}{960}\right)}{38441}-\frac{144000\,{\mathrm{e}}^{-40\,t}}{38441}'
+
+>> ilaplace((30*(s+0.8)+24)/(((s+0.8)^2+1)*(8+0.2*s)))
+ 
+ans =
+ 
+(144000*exp(-(4*t)/5)*(cos(t) + (809*sin(t))/960))/38441 - (144000*exp(-40*t))/38441
+ 
+>> 
