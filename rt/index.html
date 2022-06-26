@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Repeat</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<p id="b"></p>
+</body>
+<script type="text/javascript">
+	document.onload=setInterval(a,80);
+	var f=true;
+	function a(){
+		if (f) {
+			let p = new URLSearchParams(location.search);
+			if(p.get("c")) {
+				c = p.get("c")
+			} else {
+				c=prompt("Enter the word you wish to be repeated:");
+				f=false
+				window.open(location.href + "?c=" + c, "_self", true)
+			}
+		}
+		document.getElementById("b").innerHTML=document.getElementById("b").innerHTML+c+" ";
+	}
+</script>
+</html>
