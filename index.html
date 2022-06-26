@@ -1,17 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Homepage</title>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="homepage.css">
+	<title>Joann-Matthew Means' Personal Project Site</title>
 </head>
 <body>
-	<p>This is a website, and here are the links to my projects</p><br>
-	<a href="/slidingPuzzle">Sliding Puzzle</a><br>
-	<a href="/timer">A simple timer</a><br>
-	<a href="/mothersDay2020">Mothers day 2020 virtual cards</a><br>
-	<a href="/unicodeTablet">Unicode tablet</a><br>
-	<a href="/rt">Repeating text</a>
-	<a href="/mathLetters">Math letters</a><br>
-	<a href="/schedules">Schedule Templates</a>
+	<img src="me.jpg" style="grid-row: 2 / 3; grid-column: 2 / 3; width:90%; border-radius: 5px;">
+	<div style="grid-row: 2 / 3; grid-column: 3 / 4;">
+		<h1>Hello!</h1>
+		<p>My name is Joann-Matthew Means, and I use they/them pronouns. This is my website where I post personal projects. Take a look and see if there’s anything you find useful.<br><br>
+		I’m currently a Materials Science and Engineering student at UC Irvine. If you’re looking to connect, send me a request on <a href="https://www.linkedin.com/in/meanstoachieve/" target="_blank">Linkedin</a></p>
+	</div>
+	<div class="projectBox">
+		<img src="timer/icon.png">
+		<h1>A Simple Timer (<a href="timer/">Open</a>)</h1>
+		<p>I was tired of having to use different timer apps on all of my devices, so I made my own, and added some extra features I thought would be useful.<br><br>
+		The buttons in the first row change the amount of time the timer is set for. The buttons in the second row are toggles: one makes it so the buttons subtract time instead of add it, and the other makes it so that the buttons add or subtract more time per press. The third row allows you to set the timer until a certain time, although this may not work on some browsers. The fourth line allows you to start, stop, and clear the timer.</p>
+	</div>
+	<div class="projectBox">
+		<img src="unicodeTablet/icon.png">
+		<h1>Unicode Tablet (<a href="unicodeTablet/">Open</a>)</h1>
+		<p>There are lots of useful Unicode symbols, but it’s annoying to have to look them up and copy them or memorize the character codes. I made this page to have quick access to a number of symbols that I frequently use. Because they are Unicode, they can be used in both plain text and rich text across any platform.<br><br>
+		Click any of the squares with symbols on them to copy that symbol. Selecting “buttons type,” instead of the default “buttons copy,” will let you type multiple symbols into the textbox at a time. For example, to type “2x²≠¼”, select “buttons type,” type “2x” on your keyboard, and then ², ≠, and ¼ using the onscreen buttons.</p>
+	</div>
+	<div class="projectBox">
+		<img src="mathLetters/icon.png">
+		<h1>Math Letters (<a href="mathLetters/">Open</a>)</h1>
+		<p>This is more of a fun project that I made so that I could add emphasis or special formatting to text messages and other plain text fields that don’t allow for formatting.<br><br>
+		Type your text in the top box, then select your desired formatting using the options below. If the convert button deactivates/is greyed out, there aren’t appropriate Unicode characters to make the conversion.</p>
+	</div>
+	<div class="projectBox">
+		<img src="slidingPuzzle/icon.png">
+		<h1>Sliding Puzzle</h1>
+		<p>I couldn’t remember the URL to Simon Tatham's Portable Puzzle Collection, but I still wanted to play the sliding number puzzle, so I made this!<br><br>
+		I also adapted the same code to make 3 virtual mothers day card<br>
+		<a href="slidingPuzzle/">Original Puzzle</a><br>
+		<a href="mothersDay2020/">Virtual Mother's Day cards</a></p>
+	</div>
+	<div class="projectBox">
+		<img src="rt/icon.png">
+		<h1>Repeating text</h1>
+		<p>This is definitely just a fun project. Maybe I’m just easily amused, but there’s something really funny about seeing the page print out the same word over and over again.<br>
+			<a href="rt/yes.html">Yes</a><br>
+			<a href="rt/no.html">No</a><br>
+			<a href="rt/imSuffering.html">I'm Suffering</a><br>
+			<a href="rt/">Custom</a><br>
+		</p>
+	</div>
 </body>
+<script type="text/javascript" src="homepage.js"></script>
 </html>
