@@ -80,6 +80,7 @@ oReq.open("get", "unicodeData.json", true);
 console.log(oReq)
 oReq.send();
 console.log(oReq)
+// Maybe this only works on a server?
 
 function reqListener(e) {
     unicodeData = JSON.parse(this.responseText);
