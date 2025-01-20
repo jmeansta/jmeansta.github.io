@@ -14,7 +14,8 @@ for (var i = pbList.length - 1; i >= 0; i--) {
 	pbList[i].style.gridRowEnd = 2*(i+2);
 	pbInnerDiv = apnd("div",pbList[i])
 	moveNode(pbList[i].querySelector("h1"),pbInnerDiv)
-	moveNode(pbList[i].querySelector("p"),pbInnerDiv)
+	// moveNode(pbList[i].querySelector("p"),pbInnerDiv)
+	// moveNode(pbList[i].querySelector("ul"),pbInnerDiv)
 	// still need to move and format the link
 	// alert(i)
 }
