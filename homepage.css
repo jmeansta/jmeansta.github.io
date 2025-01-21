@@ -23,6 +23,8 @@ div {
 	grid-column-end: 1;
 	grid-row: 1 / 3;
 	width: 95%;
+}
+.pix {
 	image-rendering: pixelated;
 	image-rendering: -moz-crisp-edges;
 	image-rendering: crisp-edges;
